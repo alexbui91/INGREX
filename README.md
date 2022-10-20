@@ -4,4 +4,4 @@ Explanation methods used in this framework are proposed in [SCALE](https://githu
 
 The project includes two components: frontend and backend. The frontend (./sc_viz) is implemented using Angular and CytoscapeJS. The backend (./web_server) uses flask as the webserver. Please checkout the README files of corresponding folders to build the web application and run the web server. Both of them need to be run.
 
-
+Folder mutag_test_graphs contains some test graphs using for evaluating graph explanations.
