@@ -5,3 +5,25 @@ Explanation methods used in this framework are proposed in [SCALE](https://githu
 The project includes two components: frontend and backend. The frontend (./sc_viz) is implemented using Angular and CytoscapeJS. The backend (./web_server) uses flask as the webserver. Please checkout the README files of corresponding folders to build the web application and run the web server. Both of them need to be run.
 
 Folder mutag_test_graphs contains some test graphs using for evaluating graph explanations.
+
+[![Video Demo](https://res.cloudinary.com/marcomontalbano/image/upload/v1666610766/video_to_markdown/images/youtube--7PLO9lM6Vd0-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/7PLO9lM6Vd0 "Video Demo")
+
+## Some screen captures:
+
+***Global Visualization for Cora***
+![Global Visualization for Cora](figures/capture1.PNG)
+
+***Global Visualization for Tree-Grid***
+![Global Visualization for Tree-Grid](figures/capture2.PNG)
+
+***Local Explanation for a Node in Tree-Grid***
+![Local Explanation for a Node in Tree-Grid](figures/capture3.PNG)
+
+***Examining Node Feature Attributions in Amazon Dataset***
+![Examining Node Feature Attributions in Amazon Dataset](figures/capture4.PNG)
+
+***Examining Node Feature Attributions in Amazon Dataset***
+![Graph Prediction Explanation for Mutag](figures/capture5.PNG)
+
+***Graph Prediction Explanation for BA-2motifs***
+![Graph Prediction Explanation for BA-2motifs](figures/capture6.PNG)
