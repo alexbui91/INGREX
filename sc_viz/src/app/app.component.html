@@ -1,0 +1,25 @@
+<div class="page-container horizontal-menu sidebar-collapsed">
+    <header class="navbar navbar-fixed-top">
+        <!-- set fixed position by adding class "navbar-fixed-top" -->
+        <div class="navbar-inner">
+            <!-- logo -->
+            <div class="navbar-brand">
+                <a href="">
+                    <img src="assets/images/logo@2x.png" width="88" alt="">
+                </a>
+            </div>
+            <!-- main menu -->
+            <ul class="navbar-nav">
+                <li class="has-sub root-level"><a href="">Global Visualization</a></li>
+                <li class="has-sub root-level"><a href="/local">Node Prediction Explanation</a></li>
+                <li class="has-sub root-level"><a href="/feature">Feature Attribution</a></li>
+                <li class="has-sub root-level"><a href="/graph">Graph Prediction Explanation</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="main-content" [ngClass]="{iframe_container: globalConfig.fullFrame}">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

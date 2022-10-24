@@ -1,0 +1,66 @@
+input[type="file"] {
+    width: 100%;
+}
+
+.cy-container{
+    .cy{
+        position: relative;
+        width: auto;
+        height: 500px;
+        z-index: 1
+    }
+    .information {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10
+    }
+    .popmenu {
+        width: 100%;
+        position: relative;
+        
+    }
+    .help {
+        margin-top: 10px;
+    }
+}
+
+.comparison {
+    left: 15px;
+    bottom: 0;
+
+    h2 {
+        margin-bottom: 0;
+    }
+    .sub_panel1 {
+        border-right: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        background-color: #f2fff2;
+        h2 {
+            color: #00a651
+        }
+        
+    }
+
+    .sub_panel2 {
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        background-color: #ffeded;
+        h2{
+            color: red
+        }
+    }
+
+    #cy1 {
+        width: calc(100% - 1px);
+    }
+
+    #cy2 {
+        width: 100%;
+    }
+    .cy_draw {
+        height: 300px;
+        border-bottom: 1px dashed #ccc;
+    }
+}

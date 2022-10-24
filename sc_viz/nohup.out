@@ -1,0 +1,145 @@
+Warning: This is a simple server for use in testing or debugging Angular applications
+locally. It hasn't been reviewed for security issues.
+
+Binding this server to an open connection can result in compromising your application or
+computer. Using a different host than the one passed to the "--host" flag might result in
+websocket connection issues. You might need to use "--disable-host-check" if that's the
+case.
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+
+Initial Chunk Files   | Names         |  Raw Size
+vendor.js             | vendor        |   3.39 MB |
+main.js               | main          |   2.30 MB |
+scripts.js            | scripts       |   1.57 MB |
+polyfills.js          | polyfills     | 334.07 kB |
+styles.css, styles.js | styles        | 300.09 kB |
+runtime.js            | runtime       |   6.85 kB |
+
+| Initial Total |   7.88 MB
+
+Build at: 2022-10-22T09:11:34.168Z - Hash: 542e887e52e54dfb - Time: 15445ms
+
+** Angular Live Development Server is listening on 0.0.0.0:4200, open your browser on http://localhost:4200/ **
+
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+6 unchanged chunks
+
+Build at: 2022-10-22T09:11:35.453Z - Hash: 542e887e52e54dfb - Time: 836ms
+
+✔ Compiled successfully.
+Warning: This is a simple server for use in testing or debugging Angular applications
+locally. It hasn't been reviewed for security issues.
+
+Binding this server to an open connection can result in compromising your application or
+computer. Using a different host than the one passed to the "--host" flag might result in
+websocket connection issues. You might need to use "--disable-host-check" if that's the
+case.
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+
+Initial Chunk Files   | Names         |  Raw Size
+vendor.js             | vendor        |   3.39 MB |
+main.js               | main          |   2.30 MB |
+scripts.js            | scripts       |   1.57 MB |
+polyfills.js          | polyfills     | 334.07 kB |
+styles.css, styles.js | styles        | 300.09 kB |
+runtime.js            | runtime       |   6.85 kB |
+
+| Initial Total |   7.88 MB
+
+Build at: 2022-10-22T13:49:36.793Z - Hash: 542e887e52e54dfb - Time: 17917ms
+
+** Angular Live Development Server is listening on 0.0.0.0:44200, open your browser on http://localhost:44200/ **
+
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+6 unchanged chunks
+
+Build at: 2022-10-22T13:49:38.050Z - Hash: 542e887e52e54dfb - Time: 836ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+Warning: This is a simple server for use in testing or debugging Angular applications
+locally. It hasn't been reviewed for security issues.
+
+Binding this server to an open connection can result in compromising your application or
+computer. Using a different host than the one passed to the "--host" flag might result in
+websocket connection issues. You might need to use "--disable-host-check" if that's the
+case.
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+
+Initial Chunk Files   | Names         |  Raw Size
+vendor.js             | vendor        |   3.39 MB |
+main.js               | main          |   2.30 MB |
+scripts.js            | scripts       |   1.57 MB |
+polyfills.js          | polyfills     | 334.07 kB |
+styles.css, styles.js | styles        | 300.09 kB |
+runtime.js            | runtime       |   6.85 kB |
+
+| Initial Total |   7.88 MB
+
+Build at: 2022-10-23T14:25:46.614Z - Hash: 542e887e52e54dfb - Time: 14910ms
+
+** Angular Live Development Server is listening on 0.0.0.0:4200, open your browser on http://localhost:4200/ **
+
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+6 unchanged chunks
+
+Build at: 2022-10-23T14:25:47.871Z - Hash: 542e887e52e54dfb - Time: 811ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+Warning: This is a simple server for use in testing or debugging Angular applications
+locally. It hasn't been reviewed for security issues.
+
+Binding this server to an open connection can result in compromising your application or
+computer. Using a different host than the one passed to the "--host" flag might result in
+websocket connection issues. You might need to use "--disable-host-check" if that's the
+case.
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+
+Initial Chunk Files   | Names         |  Raw Size
+vendor.js             | vendor        |   3.39 MB |
+main.js               | main          |   2.30 MB |
+scripts.js            | scripts       |   1.57 MB |
+polyfills.js          | polyfills     | 334.07 kB |
+styles.css, styles.js | styles        | 300.09 kB |
+runtime.js            | runtime       |   6.85 kB |
+
+| Initial Total |   7.88 MB
+
+Build at: 2022-10-23T14:28:37.893Z - Hash: e15af157a07cbdbf - Time: 15387ms
+
+** Angular Live Development Server is listening on 0.0.0.0:4200, open your browser on http://localhost:4200/ **
+
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+6 unchanged chunks
+
+Build at: 2022-10-23T14:28:39.174Z - Hash: e15af157a07cbdbf - Time: 850ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial Chunk Files | Names   | Raw Size
+main.js             | main    |  2.30 MB |
+runtime.js          | runtime |  6.85 kB |
+
+4 unchanged chunks
+
+Build at: 2022-10-23T14:33:17.409Z - Hash: 906a890d1926ce2f - Time: 8735ms
+
+✔ Compiled successfully.

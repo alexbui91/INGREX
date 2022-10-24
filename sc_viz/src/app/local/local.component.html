@@ -1,0 +1,188 @@
+<div class="cy-container">
+    <div class="info-menu">
+        <h1 class="information">
+            Local Explanation
+            <span *ngIf="currentNode">
+                <span *ngIf="graph_options.node_id > -1"> for Node {{graph_options.node_id}} </span> 
+                (Prediction: 
+                    <span [ngStyle]="{'color': colors[graph_options.graph_name].nodeColor[currentNode.pr]}">{{className[graph_options.graph_name][currentNode.pr]}}</span>
+                - Label: <span [ngStyle]="{'color': colors[graph_options.graph_name].nodeColor[currentNode.lb]}">{{className[graph_options.graph_name][currentNode.lb]}}</span>
+                - Pred Probability: {{currentNode.pred_prob}}%)
+            </span>
+        </h1>
+        <div class="colorbar">
+            <ul>
+                <li *ngFor="let cls of className[graph_options.graph_name]; let i = index">
+                    <div class="dot" [ngStyle]="{'background-color': colors[graph_options.graph_name].nodeColor[i]}" style="width: 10px; height: 10px; display: inline-block;">&nbsp;</div>
+                    <div class="colorbar-text" style="display: inline-block">{{cls}}</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-9">
+            <div class="cy" id="cy"></div>
+        </div>
+        <div class="col-sm-2 col-md-3">
+            <div class="popmenu">
+                <button class="btn btn-gold help" (click)="_globalConfig.showHelp()"><i class="entypo-info"></i></button>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Dataset</label>
+                        <div class="col-sm-8">
+                            <mat-form-field >
+                                <mat-select [(value)]="graph_options.graph_name" (selectionChange)="changeGraph()">
+                                    <mat-option *ngFor="let graph of graphs" [value]="graph.value">
+                                    {{graph.name}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="field1" class="col-sm-4 control-label">Node ID</label>
+                        <div class="col-sm-8">
+                            <input id="field1" name="node_id" class="form-control" placeholder="" type="number" min="0" [(ngModel)]="graph_options.node_id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="field1" class="col-sm-4 control-label">Graph Layout</label>
+                        <div class="col-sm-8">
+                            <select name="graph_layout" class="form-control" [(ngModel)]="layout.type" (ngModelChange)="changeLayout($event)">
+                                <option value="fcose">Force</option>
+                                <option value="concentric">Concentric</option>
+                                <option value="dagre">Hierachy</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="field1" class="col-sm-4 control-label">Top Nodes</label>
+                        <div class="col-sm-8">
+                            <mat-slider min="1" max="100" step="1" [(ngModel)]="graph_options.top_nodes" [ngModelOptions]="{standalone: true}" thumbLabel ></mat-slider>
+                            <input id="field2" name="top_nodes" class="form-control input-slider" placeholder="" type="number" [(ngModel)]="graph_options.top_nodes">
+                        </div>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="field1" class="col-sm-4 control-label">Displayed Nodes</label>
+                        <div class="col-sm-8">
+                            <mat-slider min="1" max="100" step="1" [(ngModel)]="layout.displayed_nodes"
+                                (change)="changeNodeDisplay($event)" [ngModelOptions]="{standalone: true}" thumbLabel ></mat-slider>
+                            <!-- {{layout.displayed_nodes}}   -->
+                            <input type="number" min="1" max="100" step="1" [(ngModel)]="layout.displayed_nodes"
+                                name="displayed_nodes" (change)="changeNodeDisplay($event)" class="form-control input-slider"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="field1" class="col-sm-4 control-label">Edge Filter Threshold</label>
+                        <div class="col-sm-8">
+                            <mat-slider min="0" max="1" step="0.01" [(ngModel)]="layout.edge_prob"
+                                (change)="changeEdgeThreshold($event)" [ngModelOptions]="{standalone: true}" thumbLabel ></mat-slider>
+                            
+                            <input type="number" min="0" max="1" step="0.01" [(ngModel)]="layout.edge_prob"
+                                name="edge_prob" (change)="changeEdgeThreshold($event)" class="form-control input-slider"/>
+        
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Node Color</label>
+                        <div class="col-sm-8">
+                            <mat-form-field>
+                                <mat-select [(value)]="layout.node_color" (selectionChange)="changeNodeColor()">
+                                    <mat-option [value]="'pr'">By prediction</mat-option>
+                                    <mat-option [value]="'lb'">By label</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Edge Width</label>
+                        <div class="col-sm-8">
+                            <mat-form-field >
+                                <mat-select [(value)]="layout.edge_type" (selectionChange)="changeEdgeType()">
+                                    <mat-option [value]="'prob'">By contribution to direct neighbors</mat-option>
+                                    <mat-option [value]="'contrib'">By contribution to target</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-blue btn-right" (click)="reloadData()">Load Data</button>
+                            <button class="btn btn-red btn-right" (click)="saveImage()" style="margin-right: 10px">Save Image</button>
+                            <button class="btn btn-default btn-right" (click)="resetView()" style="margin-right: 10px">Reset View</button>
+                        </div>
+                    </div>
+                    
+                </form>
+                
+                <!-- <button (click)="resetView()" class="btn btn-blue">Reset View</button>     -->
+            </div>
+            <div class="help">
+                <p><b style="color: red">Red node:&nbsp;</b>Explained node</p>
+                <p><b>Edge weights:</b> Direct contributions of neighbors to the target node.</p>
+            </div>
+        </div>
+        
+    </div>
+    <div class="help_container" *ngIf="_globalConfig.help">
+        <div class="row">
+            <label class="col-sm-4 control-label">Dataset</label>
+            <div class="col-sm-8">
+                Working dataset
+            </div>
+        </div>
+        <div class="row">
+            <label for="field1" class="col-sm-4 control-label">Node ID</label>
+            <div class="col-sm-8">
+                Target node to explain
+            </div>
+        </div>
+        <div class="row">
+            <label for="field1" class="col-sm-4 control-label">Graph Layout</label>
+            <div class="col-sm-8">
+                Layout to display
+            </div>
+        </div>
+        <!-- <div class="row">
+            <label for="field1" class="col-sm-4 control-label">Top Nodes</label>
+            <div class="col-sm-8">
+                Request how many neighbors from server
+            </div>
+        </div> -->
+        <div class="row">
+            <label for="field1" class="col-sm-4 control-label">Displayed Nodes</label>
+            <div class="col-sm-8">
+                The number of nodes to display on the screen
+            </div>
+        </div>
+        <div class="row">
+            <label for="field1" class="col-sm-4 control-label">Edge Filter Threshold</label>
+            <div class="col-sm-8">
+                Hide edges if their weights are smaller than the threshold
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4 control-label">Node Color</label>
+                
+            <div class="col-sm-8">
+                Displayed by true label or predicted one
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4 control-label">Edge Width</label>
+            <div class="col-sm-8">
+                Visualize edge width by its contribution to <b style="color: red">the target node</b> or <b>the direct neighbor</b>
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4 control-label">Form Actions</label>
+                
+            <div class="col-sm-8">
+                <b>Reset View</b>: reset center the displayed graph <br>
+                <b>Save Image</b>: save the current graph to an SVG file <br>
+                <b>Load Data</b>: Request to load data with form infor
+            </div>
+        </div>
+    </div>
+</div>

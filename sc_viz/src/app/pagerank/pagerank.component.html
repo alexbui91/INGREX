@@ -1,0 +1,166 @@
+<div class="cy-container">
+    <div class="info-menu">
+        <h1 class="information">
+            Global View <span>of {{graphs[graphKeys[selected.graph]].name}}</span>
+        </h1>
+        <div class="colorbar">
+            <ul>
+                <li *ngFor="let cls of className[selected.graph]; let i = index">
+                    <div class="dot" [ngStyle]="{'background-color': colors[selected.graph].nodeColor[i]}" style="width: 10px; height: 10px; display: inline-block;">&nbsp;</div>
+                    <div class="colorbar-text" style="display: inline-block">{{cls}}</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row" style="position: relative">
+        <div class="col-sm-10 col-md-9" style="position: relative">
+            <div class="cy" id="cy"></div>
+        </div>
+        <div class="col-sm-2 col-md-3">
+            <div class="popmenu">
+                <button class="btn btn-gold help" (click)="_globalConfig.showHelp()"><i class="entypo-info"></i></button>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Dataset</label>
+                        <div class="col-sm-8">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Select a graph</mat-label>
+                                <mat-select [(value)]="selected.graph" (selectionChange)="changeGraph()">
+                                    <mat-option *ngFor="let graph of graphs" [value]="graph.value">
+                                    {{graph.name}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-group" *ngIf="selected.positionType == 'embed' && selected.graph != 'TRG'">
+                        <label class="col-sm-4 control-label">Top Nodes</label>
+                        <div class="col-sm-8">
+                            <mat-slider min="0" max="100" step="1" value="0" [(ngModel)]="selected.top_nodes"
+                                (change)="changeTopNodes($event)" [ngModelOptions]="{standalone: true}" thumbLabel ></mat-slider>
+                            
+                            <input type="number" min="0" max="100" step="0" [(ngModel)]="selected.top_nodes"
+                                name="top_nodes" (change)="changeTopNodes($event)" class="form-control input-slider"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Edge Filter Threshold</label>
+                        <div class="col-sm-8">
+                            <mat-slider min="0" max="1" step="0.01" value="0" [(ngModel)]="selected.edge_prob"
+                                (change)="changeEdgeThreshold($event)" [ngModelOptions]="{standalone: true}" thumbLabel ></mat-slider>
+                            <input type="number" min="0" max="1" step="0.01" [(ngModel)]="selected.edge_prob"
+                                name="edge_prob" (change)="changeEdgeThreshold($event)" class="form-control input-slider"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Remaining Edges</label>
+                        <div class="col-sm-8"  *ngIf="selected.remaining_edges > -1" style="padding-top: 10px">
+                            {{selected.remaining_edges}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Position Type</label>
+                        <div class="col-sm-8">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Select position type</mat-label>
+                                <mat-select [(value)]="selected.positionType" (selectionChange)="initGraph()">
+                                    <mat-option [value]="'embed'">Embedding</mat-option>
+                                    <mat-option [value]="'local'" *ngIf="selected.graph != 'cora'">Local Adaptive</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Node Color</label>
+                        <div class="col-sm-8">
+                            <mat-form-field>
+                                <mat-select [(value)]="selected.node_color" (selectionChange)="changeNodeColor()">
+                                    <mat-option [value]="'pr'">By Prediction</mat-option>
+                                    <mat-option [value]="'lb'">By Label</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="field1" class="col-sm-4 control-label">Find Node ID</label>
+                        <div class="col-sm-6" >
+                            <input id="field1" name="node_id" class="form-control" placeholder="" type="number" min="0" [(ngModel)]="selected.node_id">
+                        </div>
+                        <div class="col-sm-2" style="padding-left: 0"><button class="btn btn-blue" (click)="searchNodeID()" style="width: 100%">Find</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button class="btn btn-blue btn-right" (click)="saveImage()">Save Image</button>
+                            <button type="submit" class="btn btn-default btn-right" (click)="resetView()" style="margin-right: 10px">Reset View</button>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </form>
+                
+                <!-- <button (click)="resetView()" class="btn btn-blue">Reset View</button>     -->
+            </div>
+            <div class="help">
+                <p><b>Right Click:</b> Select options (E.g. explain a target node prediction)</p>
+                <p><b>Single Left Click:</b> View node information and out-going flows</p>
+                <p><b>Double Left Click:</b> Reset node selection</p>
+                <p><b>Drag Select:</b> Select and zoom in an area</p>
+            </div>
+        </div>
+    </div>
+    <div class="help_container" *ngIf="_globalConfig.help">
+        <div class="row">
+            <label class="col-sm-4 control-label">Dataset</label>
+            <div class="col-sm-8">
+                Working dataset
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4 control-label">Find Node ID</label>
+            <div class="col-sm-8">
+                You can navigate to position of a node by its ID
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4 control-label">Top Nodes</label>
+            <div class="col-sm-8">
+                Highlight top influential nodes 
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4 control-label">Edge Filter Threshold</label>
+            <div class="col-sm-8">
+                Hide edges having weights smaller than the threshold
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4 control-label">Remaining Edges</label>
+            <div class="col-sm-8">
+                Show #remaining edges after filtering
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4 control-label">Position Type</label>
+            <div class="col-sm-8">
+                Position nodes using <b>GNN's embedding vectors</b> or <b>Nodes' relative position to neighbors</b>
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4 control-label">Node Color</label>
+            <div class="col-sm-8">
+                Set node colors based on <b>True Labels</b> or <b>Predicted Labels</b>
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4 control-label">Form Actions</label>
+            <div class="col-sm-8">
+                <b>Reset View</b>: reset center the displayed graph <br>
+                <b>Save Image</b>: save the current graph to an SVG file
+            </div>
+        </div>
+    </div>
+</div>
+<div class="edge-tooltip" [ngClass]="{'edge-tooltip-active': edgeContent.text != ''}" [ngStyle]="{'top.px' : edgeContent.pos.y, 'left.px': edgeContent.pos.x}">
+    {{edgeContent.text}}
+</div>

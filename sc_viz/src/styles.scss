@@ -1,0 +1,528 @@
+/* You can add global styles to this file, and also import other style files */
+.mat-form-field {
+    width: 100%;
+}
+.colorbar {
+    width: 300px;
+}
+.cy-container{
+    position: relative;
+    width: 100%;
+    min-height: 1000px;
+
+    .popmenu {
+        position: relative;
+        // top: 0;
+        // right: 0;
+        // width: 300px;
+        // height: 300px;
+        z-index: 2;
+        background: #FFF;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        user-select: none;
+
+        .btn-right{
+            float: right;
+        }
+        .help{
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 24px;
+            height: 20px;
+            line-height: 0;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 10px;
+            z-index: 10;
+
+            :hover{
+                cursor: pointer;
+            }
+
+            i {
+                margin-left: -6px;
+            }
+        }
+    }
+
+    .cy{
+        position: absolute;
+        top: 0; 
+        left: 0;    
+        width: 100%;
+        height: 1000px;
+        z-index: 5
+    }
+
+    .help_container {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        position: absolute;
+        top: 50px;
+        right: 310px;
+        width: 460px;
+        padding: 5px;
+        z-index: 10;
+        background: #fffff6;
+    }
+    
+}
+
+/* cytoscape menu */
+.cy-context-menus-cxt-menu {
+    display:none;
+    z-index: 1000;
+    position:absolute;
+    border:1px solid #A0A0A0;
+    padding: 0;
+    margin: 0;
+    width:auto;
+}
+
+.cy-context-menus-cxt-menuitem {
+    display:block;
+    width: 100%;
+    padding: 3px 20px;
+    position:relative;
+    margin:0;
+    background-color:#f8f8f8;
+    font-weight:normal;
+    font-size: 12px;
+    white-space:nowrap;
+    border: 0;
+    text-align: left;
+}
+
+.cy-context-menus-cxt-menuitem:enabled {
+    color: #000000;
+}
+
+.cy-context-menus-ctx-operation:focus {
+  outline: none;
+}
+
+.cy-context-menus-cxt-menuitem:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #0B9BCD;
+    background-image: none;
+    cursor: pointer;
+}
+
+.cy-context-menus-cxt-menuitem[content]:before {
+    content:attr(content);
+}
+
+.cy-context-menus-divider {
+  border-bottom:1px solid #A0A0A0;
+}
+
+.cy-context-menus-submenu-indicator {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* You can add global styles to this file, and also import other style files */
+.page-container .iframe_container {
+    padding: 0 !important
+}
+
+.bg-custom{
+    background: #edf2f6;
+}
+.page-has-left-panels {
+    padding-left: 0
+}
+.header .page-title a{
+    color: #FFF
+}
+.main-noti{
+    text-align: center;
+    padding-top: 15px;
+    font-weight: bold;
+}
+.main-noti p{
+    font-size: 16px;
+}
+button.calendar, button.calendar:active {
+    width: 2.75rem;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAcCAYAAAAEN20fAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEUSURBVEiJ7ZQxToVAEIY/YCHGxN6XGOIpnpaEsBSeQC9ArZbm9TZ6ADyBNzAhQGGl8Riv4BLAWAgmkpBYkH1b8FWT2WK/zJ8ZJ4qiI6XUI3ANnGKWBnht2/ZBDRK3hgVGNsCd7/ui+JkEIrKtqurLpEWaphd933+IyI3LEIdpCYCiKD6HcuOa/nwOa0ScJEnk0BJg0UTUWJRl6RxCYEzEmomsIlPU3IPW+grIAbquy+q6fluy/28RIBeRMwDXdXMgXLj/B2uimRXpui4D9sBeRLKl+1N+L+t6RwbWrZliTTTr1oxYtzVWiTQAcRxvTX+eJMnlUDaO1vpZRO5NS0x48sIwfPc87xg4B04MCzQi8hIEwe4bl1DnFMCN2zsAAAAASUVORK5CYII=') !important;
+    background-repeat: no-repeat;
+    background-size: 23px;
+    background-position: center;
+  }
+.required{
+    color: #f92552;
+    font-size: 7px;
+}
+.paper-form-wrapper .form-group.has-error:after {
+    top: 7px;
+}
+.has-error-line{
+    color:  #f92552;
+    font-size:13px;
+    margin-left: 5px
+}
+.read-more{
+    position: absolute;
+    bottom: 2px;
+    right: 12px;
+    width: 91px;
+    text-align: center;
+    user-select: none;
+    background: #FFF;
+}
+.read-more:hover{
+    cursor: pointer;
+    text-decoration: underline
+}
+.read-more.show-less{
+
+}
+.hentry-inner{
+    height: 175px;
+    overflow: hidden;
+}
+.hentry-inner.post-read-more{
+    height: auto
+}
+.hentry.post p{
+    margin: 10px 0;
+}
+.read-more-wrapper{
+    padding-top: 10px
+}
+.paper-form-wrapper .form-control, .paper-form-wrapper .btn{
+    padding: 0.6rem
+}
+.paper-form-wrapper select.form-control{
+    padding: 5px 10px
+}
+.paper-form-wrapper .form-group{
+    margin-bottom: 0.6rem
+}
+.paper-form-wrapper label{
+    font-weight: bold;
+}
+.paper-form-wrapper  .btn.full-width{
+    margin-bottom: 0
+}
+.author-thumb img {
+    width: 36px;
+}
+.w-friend-pages-added .full-notification-event {
+    max-width: 100%;
+}
+.full-notification-event .count-down{
+    font-size: 14px;
+    font-weight: bold;
+}
+.full-notification-event p{
+    margin: 5px;
+}
+.conference-wrapper-list{
+    height: 500px;
+    overflow: auto
+}
+.btn-circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 25px;
+    margin: 0;
+    font-size: 10px;
+    line-height: 10px;
+    padding: 0px !important;
+    margin-left: 5px;
+}
+.paper-form-wrapper input.date-picker{
+    width: 100px;
+}
+.page-form-wrapper .calendar svg{
+    color: #858585;
+}
+
+.login-box{
+    margin-top: 15px;
+}
+
+.main-calendar{
+    border: none
+}
+.main-calendar ngb-datepicker{
+    width: 100%
+}
+.main-calendar .ngb-dp-month{
+    width: 100%
+}
+.main-calendar .ngb-dp-month .ngb-dp-weekday, .main-calendar .ngb-dp-month .ngb-dp-day{
+    width: calc(100%/7)
+}
+.conf-title{
+    font-size: 15px;
+}
+.link-button{
+    user-select: none;
+}
+.link-button:hover{
+    cursor: pointer;
+    text-decoration: underline
+}
+a:hover{
+    cursor: pointer;
+}
+.ui-block-content, .comments-list .comment-item, .post, .ui-block-title, .notification-list .selectize-dropdown-content > *, .notification-list li, .more-comments, .comment-form {
+    padding: 12px;
+}
+.comment-content{
+    margin: 0 
+}
+.comment-form{
+    position: relative;
+    margin-bottom: 0;
+}
+.comment-form .placeholder{
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    color: #ccc;
+    z-index: 1;
+}
+.comment-form .form-control{
+    border: none
+}
+.comment-form .edit-comment-form{
+    position: relative;
+    z-index: 2;
+    min-height: 50px;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    border: 1px solid #ced4da;
+    background: none
+}
+.paper-form-wrapper .comment-form{
+    padding: 0;
+    border: none;
+    height: 100px;
+}
+.paper-detail .paper-form-wrapper .comment-form{
+    height: 300px;
+}
+.comment-form .edit-comment-form{
+    height: 100%;
+    overflow: auto
+}
+.search-input{
+    border: none
+}
+.search-input  button{
+    margin: 0
+}
+.search-input .edit-comment-form{
+    min-height: 0;
+    width: 90%;
+    float: left;
+    border: none;
+    color: #FFF;
+    padding: 0;
+    font-size: 16px;
+}
+.search-input .edit-comment-form{
+    text-transform: capitalize
+}
+.comments-list .comment-item {
+    background: #FFF;
+    border-bottom: 1px solid #e6ecf5;
+    border-top: 1px solid #e6ecf5;
+}
+.reply-form{
+    background: #FFF
+}
+.more-comments{
+    text-align: left
+}
+.post__date{
+    font-size: 12px;
+}
+.autocomplete-form{
+    position: relative;
+    overflow: visible;
+}
+.autocomplete{
+    height: 0px;
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    width: 100%
+}
+.autocomplete .dropdown-menu{
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+}
+.autocomplete .dropdown-item{
+    padding-left: 10px;
+    font-size: 13px;
+}
+.show{
+    display: block !important;
+}
+.hide{
+    display: none !important;
+}
+.search-form{
+    transition: all .3s ease;
+}
+.search-auto{
+    top: 50px
+}
+.autocomplete .search-form{
+    padding: 0 
+}
+.autocomplete .search-item{
+    padding: 0
+}
+.search-item a{
+    color: #333
+}
+.search-item p{
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+.search-form li{
+    padding: 10px;
+}
+.search-form li p:last-child{
+    margin-bottom: 0
+}
+.autocomplete .dropdown-item{
+    background: none
+}
+.post__author-name{
+    text-transform: uppercase
+}
+.project-title{
+    /* position: absolute; */
+    font-size: 14px;
+    /* display: inline;
+    top: 12px; */
+}
+.author-date{
+    width: calc(100% - 60px)
+}
+.user-info .btn.calendar{
+    margin: 0;
+    border-color: #ced4da;
+}
+.control-label{
+    z-index: 4;
+}
+.author-thumb .avatar{
+    height: 36px;
+    width: auto
+}
+.comments-list .post__author img {
+    width: auto;
+    height: 36px;
+}
+
+.researches .button button{
+    margin-right:5px;
+}
+.researches td{
+    padding: 10px 10px;
+    text-align: center
+}
+
+.view_port{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+
+    button{
+        width: 30px;
+        height: 30px;
+        margin-bottom: 1px;
+    }
+}
+
+.edge-tooltip {
+    position: fixed; 
+    top: 0; 
+    left:0; 
+    width: 60px; 
+    height: 30px; 
+    z-index: 100;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #d4ffc4;
+    text-align: center;
+    line-height: 30px;
+    display: none;
+}
+
+.edge-tooltip-active {
+    display: block
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-slider.mat-accent .mat-slider-track-fill, .mat-slider.mat-accent .mat-slider-thumb, .mat-slider.mat-accent .mat-slider-thumb-label {
+    background-color: #0084ff;
+} 
+
+.mat-slider-horizontal {
+    min-width: 80% !important
+}
+.input-slider{
+    width: 40px;
+    padding: 6px 1px;
+    float: right;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.info-menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    user-select: None;
+
+    .colorbar{
+        ul {
+            position: relative
+        }
+
+        ul > li {
+            position: relative;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+            .dot{
+                position: absolute;
+                top: 5px;
+                left: 0;
+            }
+
+            .colorbar-text{
+                margin-left: 15px
+            }
+        }
+    }
+
+}
+.help{
+    margin-top: 10px;
+    font-size: 16px;
+}
