@@ -1,3 +1,8 @@
-pip install flask flask-restfull flask-cors
+## Install the following lib
 
-python server.py
+```pip install flask flask-restfull flask-cors```
+
+
+## Run server
+
+```python server.py```
