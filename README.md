@@ -6,7 +6,7 @@ The project includes two components: frontend and backend. The frontend (./sc_vi
 
 Folder mutag_test_graphs contains some test graphs using for evaluating graph explanations.
 
-[![Video Demo](https://res.cloudinary.com/marcomontalbano/image/upload/v1666610766/video_to_markdown/images/youtube--7PLO9lM6Vd0-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/7PLO9lM6Vd0 "Video Demo")
+[![Video Demo](https://res.cloudinary.com/marcomontalbano/image/upload/v1666665645/video_to_markdown/images/youtube--3T2TojvBs0w-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/3T2TojvBs0w "")
 
 ## Some screen captures:
 
